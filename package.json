@@ -1,0 +1,22 @@
+{
+	"name": "proportions",
+	"version": "0.1.0",
+	"private": false,
+	"author": {
+		"name": "Dru-S",
+		"url": "https://github.com/Dru-S"
+	},
+	"scripts": {
+		"serve": "vue-cli-service serve --open",
+		"build": "vue-cli-service build"
+	},
+	"dependencies": {
+		"vue": "^2.6.11"
+	},
+	"devDependencies": {
+		"@vue/cli-service": "~4.5.0",
+		"sass": "^1.26.5",
+		"sass-loader": "^8.0.2",
+		"vue-template-compiler": "^2.6.11"
+	}
+}
