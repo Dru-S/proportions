@@ -1,4 +1,6 @@
-![image](https://user-images.githubusercontent.com/12699772/112671248-3d38bd80-8e62-11eb-93a7-e5a3a35603e5.png)
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/12699772/112672027-40807900-8e63-11eb-89df-0144aee31589.png" />
+</p>
 
 <h1 align="center">Proportions</h1>
 <p align="center">Yes, simple proportions, but nicer.</p>
