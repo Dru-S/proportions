@@ -1,16 +1,4 @@
 <template>
-	<!-- <?php
-
-	// Defaults values
-	$defaults = array(
-		'unit' => '',
-		'fixed' => 2,
-		'inputA' => '',
-		'inputB' => '',
-		'inputC' => '',
-	)
-
-?> -->
 
 	<main class="ds_main" v-bind:class="{ _light: light }">
 		<ul class="ds_proportions">

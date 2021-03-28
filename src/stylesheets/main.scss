@@ -1,10 +1,12 @@
-// Variables
+// Fonts
+@import 'https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap';
 
+// Variables
 $dark: #051c2c;
 $accent: #ff7f32;
 $light: #f2f2f2;
 
-$font-base: 'Inter V', sans-serif;
+$font-base: 'Inter', sans-serif;
 
 //
 $transition-cubic-bezier: cubic-bezier(0.3, 0, 0, 1);
@@ -154,7 +156,7 @@ body {
 		li {
 			padding: 0 15px;
 			position: relative;
-			font-weight: bold;
+			font-weight: 700;
 			font-size: 5vw;
 			color: $light;
 			transition: $transition-base;
@@ -165,10 +167,11 @@ body {
 				left: 50%;
 				transform: translate(-50%, -50%);
 				font-size: 15vw;
-				color: rgba($light, 0.05);
+				color: rgba($light, 0.04);
 				font-style: italic;
 				transition: $transition-base;
 				pointer-events: none;
+				font-weight: 800;
 			}
 
 			> div {
@@ -186,7 +189,7 @@ body {
 				position: relative;
 				z-index: 1;
 				text-align: center;
-				font-weight: bold;
+				font-weight: 700;
 				transition: $transition-base;
 				font-family: $font-base;
 
