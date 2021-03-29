@@ -1,45 +1,15 @@
-// Fonts
-@import 'https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap';
-
-// Variables
-$dark: #051c2c;
-$accent: #ff7f32;
-$light: #f2f2f2;
-
-$font-base: 'Inter', sans-serif;
+@import 'base/variables';
 
 //
-$transition-cubic-bezier: cubic-bezier(0.3, 0, 0, 1);
+
+@import 'base/scut';
+@import 'base/mq';
+@import 'base/normalize';
+
 //
-$transition-base-time: 0.75s;
-$transition-base-easing: $transition-base-time $transition-cubic-bezier;
-$transition-base: all $transition-base-easing;
 
-// Global
-* {
-	outline: 0 !important;
-	box-sizing: border-box;
-}
-
-body {
-	margin: 0;
-	font-family: $font-base;
-
-	&,
-	* {
-		letter-spacing: -0.04em;
-	}
-}
-
-.ds_svg {
-	&,
-	svg {
-		width: 100%;
-		height: 100%;
-		display: inline-block;
-		vertical-align: top;
-	}
-}
+@import 'shared/layout';
+@import 'shared/svg';
 
 // Styles
 .ds_main {

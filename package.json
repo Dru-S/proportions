@@ -1,16 +1,25 @@
 {
 	"name": "proportions",
+	"description": "Proportions, but nicer.",
 	"version": "0.1.0",
 	"private": false,
 	"author": {
 		"name": "Dru-S",
 		"url": "https://github.com/Dru-S"
 	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/Dru-S/proportions.git"
+	},
+	"license": "GPL-3.0-only",
 	"scripts": {
 		"serve": "vue-cli-service serve --open",
 		"build": "vue-cli-service build"
 	},
 	"dependencies": {
+		"normalize.css": "^8.0.1",
+		"sass-mq": "^5.0.1",
+		"scut": "^1.4.0",
 		"vue": "^2.6.11"
 	},
 	"devDependencies": {

@@ -1,0 +1,19 @@
+// Fonts
+@import 'https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap';
+
+// Variables
+$dark: #051c2c;
+$accent: #ff7f32;
+$light: #f2f2f2;
+
+$font-base: 'Inter', sans-serif;
+$line-height-base: 1.2;
+$body-color: #fff;
+$body-bg: $dark;
+
+//
+$transition-cubic-bezier: cubic-bezier(0.3, 0, 0, 1);
+//
+$transition-base-time: 0.75s;
+$transition-base-easing: $transition-base-time $transition-cubic-bezier;
+$transition-base: all $transition-base-easing;
