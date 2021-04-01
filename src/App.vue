@@ -1,6 +1,6 @@
 <template>
 
-	<main class="ds_main" v-bind:class="{ _light: light }">
+	<main class="ds_main" v-bind:class="[`_${$store.state.theme}`]">
 		<ul class="ds_proportions">
 			<li class="ds_proportions_input">
 				<label for="inputA">A</label>
@@ -57,7 +57,7 @@
 			<div class="ds_fixed_changer">
 				<a
 					class="minus"
-					v-bind:class="{ _disabled: fixed == 0 }"
+					v-bind:class="{ _disabled: $store.state.fixed == 0 }"
 					@click="changeFixed(-1)"
 				>
 					<span class="ds_svg">
@@ -70,7 +70,7 @@
 				</a>
 				<div class="ds_input">
 					<label>Fixed</label>
-					<div class="input">{{ fixed }}</div>
+					<div class="input">{{ $store.state.fixed }}</div>
 				</div>
 				<a class="plus" @click="changeFixed(1)">
 					<span class="ds_svg">
@@ -84,7 +84,7 @@
 			</div>
 
 			<div class="ds_theme_switcher">
-				<a class="sun" @click="light = true">
+				<a class="sun" @click="$store.commit('themeUpdate', 'light')">
 					<span class="ds_svg">
 						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80">
 							<path
@@ -95,8 +95,8 @@
 						</svg>
 					</span>
 				</a>
-				<a class="switch" @click="light = !light"></a>
-				<a class="moon" @click="light = false">
+				<a class="switch" @click="$store.commit('themeUpdate')"></a>
+				<a class="moon" @click="$store.commit('themeUpdate', 'dark')">
 					<span class="ds_svg">
 						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80">
 							<path
@@ -117,23 +117,26 @@ export default {
 	components: {},
 	data() {
 		return {
-			unit: '',
-			fixed: 2,
 			inputA: '',
 			inputB: '',
 			inputC: '',
-			light: false,
 		};
 	},
 	computed: {
 		inputD() {
 			if (!(this.$data.inputA && this.$data.inputB && this.$data.inputC)) return '';
 
-			let value = ((this.$data.inputB * this.$data.inputC) / this.$data.inputA).toFixed(
-				this.$data.fixed,
-			);
-			return value + this.$data.unit;
+			let value = ((this.$data.inputB * this.$data.inputC) / this.$data.inputA).toFixed(this.$store.state.fixed);
+			return value + this.$store.state.unit;
 		},
+		unit: {
+			get() {
+				return this.$store.state.unit;
+			},
+			set(val) {
+				this.$store.commit('unitUpdate', val)
+			},
+		}
 	},
 	methods: {
 		swapTwins() {
@@ -142,9 +145,7 @@ export default {
 			this.$data.inputB = tmp;
 		},
 		changeFixed(val) {
-			this.fixed += val;
-
-			if (this.fixed < 0) this.fixed = 0;
+			this.$store.commit('fixedIncrement', val)
 		},
 	},
 };
