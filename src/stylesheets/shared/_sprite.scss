@@ -1,4 +1,5 @@
-.ds_svg {
+.ds_svg, // TODO: Remove
+.ds_sprite {
 	@include scut-size(100%);
 	display: inline-block;
 	vertical-align: top;

@@ -47,6 +47,7 @@
 		</ul>
 
 		<div class="ds_tools">
+
 			<div class="ds_unit_append">
 				<div class="ds_input">
 					<label>Unit</label>
@@ -54,32 +55,20 @@
 				</div>
 			</div>
 
+			<!--  -->
+
 			<div class="ds_fixed_changer">
-				<a
-					class="minus"
+				<a class="minus"
 					v-bind:class="{ _disabled: $store.state.fixed == 0 }"
-					@click="changeFixed(-1)"
-				>
-					<span class="ds_svg">
-						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80">
-							<path
-								d="M74.7,35.2H5.3c-2.7,0-4.8,2.1-4.8,4.8s2.1,4.8,4.8,4.8h69.4c2.7,0,4.8-2.1,4.8-4.8S77.4,35.2,74.7,35.2z"
-							/>
-						</svg>
-					</span>
+					@click="changeFixed(-1)">
+					<ds-sprite id="minus"/>
 				</a>
 				<div class="ds_input">
 					<label>Fixed</label>
 					<div class="input">{{ $store.state.fixed }}</div>
 				</div>
 				<a class="plus" @click="changeFixed(1)">
-					<span class="ds_svg">
-						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80">
-							<path
-								d="M74.7,35.2H44.8V5.3c0-2.7-2.1-4.8-4.8-4.8s-4.8,2.1-4.8,4.8v29.9H5.3c-2.7,0-4.8,2.1-4.8,4.8s2.1,4.8,4.8,4.8h29.9v29.9 c0,2.7,2.1,4.8,4.8,4.8s4.8-2.1,4.8-4.8V44.8h29.9c2.7,0,4.8-2.1,4.8-4.8S77.4,35.2,74.7,35.2z"
-							/>
-						</svg>
-					</span>
+					<ds-sprite id="plus"/>
 				</a>
 			</div>
 
