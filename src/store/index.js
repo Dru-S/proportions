@@ -21,14 +21,16 @@ const store = new Vuex.Store({
 		},
 		//
 		themeUpdate(state, theme) {
-			if (theme) {
-				state.theme = theme;
-			} else {
-				if (state.theme == 'light') {
-					state.theme = 'dark'
-				} else if (state.theme == 'dark') {
-					state.theme = 'light'
-				}
+			switch (theme) {
+				case 'light':
+				case 'dark':
+					state.theme = theme;
+					break;
+
+				default:
+					state.theme = state.theme == 'light' ? 'dark' : state.theme;
+					state.theme = state.theme == 'dark' ? 'light' : state.theme;
+					break;
 			}
 		},
 	}

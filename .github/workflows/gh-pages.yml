@@ -2,7 +2,7 @@
 
 name: GitHub Pages
 
-# Controls when the action will run. 
+# Controls when the action will run.
 on:
   # Triggers the workflow on push or pull request events but only for the main branch
   push:
@@ -34,7 +34,7 @@ jobs:
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
-        
+
       # - name: GitHub Pages
       #   # You may pin to the exact commit or the version.
       #   uses: crazy-max/ghaction-github-pages@v2
