@@ -1,0 +1,31 @@
+@import './custom';
+
+// https://sass-mq.github.io/sass-mq/
+@import '~sass-mq/mq';
+
+// Quick custom ¯\_(ツ)_/¯
+@if length($mq-show-breakpoints) > 0 {
+	body._debug::before {
+		top: 10px;
+		right: 10px;
+		z-index: 99999999;
+		border: 0;
+		border-radius: 100px;
+		padding: 3px 10px;
+		text-align: center;
+		background: rgba(#fff, 0.8);
+		color: #333333;
+		pointer-events: none;
+		font-weight: 700;
+		font-size: 12px;
+		display: block !important;
+
+		// Loop through the breakpoints that should be shown
+		@each $show-breakpoint in $mq-show-breakpoints {
+			$width: mq-get-breakpoint-width($show-breakpoint, $mq-breakpoints);
+			@include mq($show-breakpoint) {
+				content: '#{to-upper-case($show-breakpoint)} ≥ #{$width}';
+			}
+		}
+	}
+}

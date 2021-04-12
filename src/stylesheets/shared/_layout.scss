@@ -1,0 +1,31 @@
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+	outline: 0 !important;
+}
+
+html {
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	text-rendering: optimizeLegibility;
+}
+
+body {
+	margin: 0; // 1
+	font-family: $font-base;
+	font-weight: 400;
+	line-height: $line-height-base;
+	color: $body-color;
+	text-align: left; // 3
+	background-color: $body-bg; // 2
+
+	&,
+	* {
+		letter-spacing: -0.04em;
+	}
+}
+
+figure {
+	margin: 0;
+}

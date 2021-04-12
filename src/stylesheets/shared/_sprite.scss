@@ -1,0 +1,14 @@
+.ds_svg, // TODO: Remove
+.ds_sprite {
+	@include scut-size(100%);
+	display: inline-block;
+	vertical-align: top;
+	flex-shrink: 0;
+	font-style: normal;
+
+	svg {
+		@include scut-size(100%);
+		display: inline-block;
+		vertical-align: top;
+	}
+}
