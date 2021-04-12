@@ -7,6 +7,9 @@ const svgstore = require('svgstore');
 const config = require('./config');
 
 module.exports = {
+	publicPath: process.env.NODE_ENV === 'production'
+    ? '/proportions/'
+    : '/',
 	chainWebpack: webpackConfig => {
 
 		// Build a SVG Sprite during build
