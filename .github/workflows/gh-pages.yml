@@ -44,15 +44,21 @@ jobs:
       - name: NPM version
         run: 'echo NPM: $(npm -v)'
 
-      # - name: GitHub Pages
-      #   # You may pin to the exact commit or the version.
-      #   uses: crazy-max/ghaction-github-pages@v2
-      #   with:
-      #     # Build directory to deploy
-      #     build_dir: dist
-      #     # The committer name and email address
-      #     # committer: # optional
-      #     # The author name and email address
-      #     # author: # optional
-      #     # Commit message
-      #     # commit_message: # optional
+      # Install and build the project
+      - name: Build Project
+        run: |
+          npm i
+          npm run build
+
+     # Build to GitHub Pages
+      - name: GitHub Pages
+        uses: crazy-max/ghaction-github-pages@v2
+        with:
+          # Build directory to deploy
+          build_dir: dist
+          # The committer name and email address
+          # committer: # optional
+          # The author name and email address
+          # author: # optional
+          # Commit message
+          # commit_message: # optional
