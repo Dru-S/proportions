@@ -62,3 +62,5 @@ jobs:
           # author: # optional
           # Commit message
           # commit_message: # optional
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
