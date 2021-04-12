@@ -44,6 +44,12 @@ jobs:
       - name: NPM version
         run: 'echo NPM: $(npm -v)'
 
+      # Install and build the project
+      - name: Build Project
+        run: |
+          npm i
+          npm run build
+
      # Build to GitHub Pages
       - name: GitHub Pages
         uses: crazy-max/ghaction-github-pages@v2
