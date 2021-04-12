@@ -1,6 +1,6 @@
 <template>
 	<i class="ds_sprite">
-		<svg role="img" v-bind:viewBox="viewBox"><use v-bind:xlink:href="`/icons.svg#${id}`"/></svg>
+		<svg role="img" v-bind:viewBox="viewBox"><use v-bind:xlink:href="`icons.svg#${id}`"/></svg>
 	</i>
 </template>
 
