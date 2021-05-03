@@ -1,0 +1,94 @@
+.ds_theme_switcher {
+	display: flex;
+	align-items: center;
+
+	&_icon {
+		width: 22px;
+		height: 22px;
+		display: block;
+		cursor: pointer;
+		fill: $light;
+		transition: fill $transition-base-easing;
+
+		&:hover,
+		&:active {
+			fill: $accent !important;
+		}
+
+		@include isLight {
+			fill: $dark;
+		}
+	}
+
+	&_switch {
+		width: 50px;
+		height: 25px;
+		background: $light;
+		position: relative;
+		border-radius: 100px;
+		margin: 0 10px;
+		transition: $transition-base;
+		cursor: pointer;
+
+		@include isLight {
+			background: $dark;
+
+			&::before {
+				background: $light;
+				transform: translate3d(0px, 0, 0);
+			}
+		}
+
+		&::before {
+			content: '';
+			position: absolute;
+			top: 2px;
+			left: 2px;
+			width: 21px;
+			height: 21px;
+			background: $dark;
+			border-radius: 1000px;
+			transition: $transition-base;
+			transform: translate3d(25px, 0, 0);
+		}
+	}
+}
+
+//
+
+.ds_fixed_changer {
+	display: flex;
+	align-items: center;
+
+	&_i {
+		width: 20px;
+		height: 20px;
+		display: block;
+		cursor: pointer;
+		fill: $light;
+		transition: $transition-base;
+
+		&:hover,
+		&:active {
+			fill: $accent !important;
+		}
+
+		&._disabled {
+			opacity: 0.2;
+			pointer-events: none;
+		}
+
+		@include isLight {
+			fill: $dark;
+		};
+	}
+
+	.ds_input {
+		margin: 0 10px;
+
+		input,
+		.input {
+			text-align: right;
+		}
+	}
+}

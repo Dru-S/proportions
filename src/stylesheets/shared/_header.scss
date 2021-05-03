@@ -1,0 +1,65 @@
+.ds_header {
+	@include scut-fixed(0 0 n 0);
+	z-index: $zindex-header;
+	padding: 20px;
+	display: flex;
+	align-items: center;
+
+	&_logo {
+		$dshl: &;
+
+		color: $light;
+		font-weight: 700;
+		letter-spacing: -.04em;
+		font-size: 32px;
+		line-height: 1;
+		position: relative;
+		cursor: default;
+		transition: color $transition-base-easing;
+
+		&:hover,
+		&:active {
+			#{$dshl}_claim {
+				> span {
+					transform: none;
+					transition-delay: .5s;
+				}
+			}
+		}
+
+		@include isLight {
+			color: $dark;
+		};
+
+		&_claim {
+			@include scut-absolute(100% n n 0);
+			font-size: 70%;
+			overflow: hidden;
+			margin-top: 3px;
+			pointer-events: none;
+
+			> span {
+				display: block;
+				transform: translate3d(0, -100%, 0);
+				transition: transform $transition-base-easing;
+				transition-delay: 0s;
+			}
+		}
+	}
+
+	//
+
+	&_tools {
+		display: flex;
+		align-items: center;
+		margin-left: auto;
+
+		&_i {
+			margin-right: 30px;
+
+			&:last-child {
+				margin-right: 0;
+			}
+		}
+	}
+}

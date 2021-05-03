@@ -1,0 +1,6 @@
+
+@mixin isLight() {
+	.ds_app._light & {
+		@content;
+	}
+}

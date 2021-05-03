@@ -17,6 +17,7 @@
 		"build": "vue-cli-service build"
 	},
 	"dependencies": {
+		"@primer/octicons": "^13.0.0",
 		"normalize.css": "^8.0.1",
 		"sass-mq": "^5.0.1",
 		"scut": "^1.4.0",

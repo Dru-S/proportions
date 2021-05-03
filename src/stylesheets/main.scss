@@ -1,4 +1,5 @@
 @import 'base/variables';
+@import 'base/mixins';
 
 //
 
@@ -10,8 +11,15 @@
 
 @import 'shared/layout';
 @import 'shared/sprite';
+@import 'shared/elems';
+@import 'shared/header';
 
-// Styles
+//
+
+.ds_app {
+
+}
+
 .ds_main {
 	display: flex;
 	align-items: center;
@@ -21,7 +29,9 @@
 	background: $dark;
 	transition: background $transition-base-easing;
 
-	&._light {
+	//
+
+	@include isLight {
 		background: $light;
 
 		.ds_proportions {
@@ -42,220 +52,97 @@
 				}
 			}
 		}
-
-		.ds_fixed_changer {
-			.plus,
-			.minus {
-				fill: $dark;
-
-				&:hover,
-				&:active {
-					fill: $accent;
-				}
-			}
-
-			.value {
-				label {
-					color: $dark;
-					background: $light;
-				}
-
-				input {
-					border-color: $dark;
-					color: $dark;
-				}
-			}
-		}
-
-		.ds_theme_switcher {
-			.switch {
-				background: $dark;
-
-				&::before {
-					background: $light;
-					transform: translate3d(0px, 0, 0);
-				}
-			}
-		}
 	}
+}
 
-	.ds_proportions {
-		list-style: none;
-		padding: 0;
-		margin: 0;
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-		width: 100%;
+.ds_proportions {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	width: 100%;
 
-		&_input {
-			flex-grow: 1;
+	&_input {
+		flex-grow: 1;
 
-			&._res {
-				&._border {
-					input {
-						border-color: $accent;
-					}
-				}
-
+		&._res {
+			&._border {
 				input {
-					color: $accent !important;
-					pointer-events: none;
-				}
-			}
-		}
-
-		&_swap {
-			width: 30px;
-			height: 30px;
-			display: block;
-			fill: $light;
-			transition: $transition-base;
-			cursor: pointer;
-
-			&:hover {
-				fill: $accent;
-			}
-
-			&._nope {
-				opacity: 0.3;
-				pointer-events: none;
-			}
-		}
-
-		li {
-			padding: 0 15px;
-			position: relative;
-			font-weight: 700;
-			font-size: 5vw;
-			color: $light;
-			transition: $transition-base;
-
-			label {
-				position: absolute;
-				top: 50%;
-				left: 50%;
-				transform: translate(-50%, -50%);
-				font-size: 15vw;
-				color: rgba($light, 0.04);
-				font-style: italic;
-				transition: $transition-base;
-				pointer-events: none;
-				font-weight: 800;
-			}
-
-			> div {
-				width: 100%;
-			}
-
-			input {
-				border: 0;
-				color: $light;
-				border-bottom: 2px solid $light;
-				padding: 10px 0;
-				width: 100%;
-				background: none;
-				font-size: 4vw;
-				position: relative;
-				z-index: 1;
-				text-align: center;
-				font-weight: 700;
-				transition: $transition-base;
-				font-family: $font-base;
-
-				&::-webkit-inner-spin-button {
-					display: none;
-				}
-
-				&:focus {
 					border-color: $accent;
 				}
 			}
+
+			input {
+				color: $accent !important;
+				pointer-events: none;
+			}
 		}
 	}
-}
 
-.ds_tools {
-	position: fixed;
-	top: 20px;
-	right: 20px;
-	display: flex;
-	align-items: center;
-}
-
-.ds_theme_switcher {
-	display: flex;
-
-	.sun,
-	.moon {
-		width: 25px;
-		height: 25px;
+	&_swap {
+		width: 35px;
+		height: 35px;
 		display: block;
-		cursor: pointer;
-	}
-
-	.switch {
-		width: 50px;
-		height: 25px;
-		background: $light;
-		position: relative;
-		border-radius: 1000px;
-		margin: 0 10px;
-		transition: $transition-base;
-		cursor: pointer;
-
-		&::before {
-			content: '';
-			position: absolute;
-			top: 2px;
-			left: 2px;
-			width: 21px;
-			height: 21px;
-			background: $dark;
-			border-radius: 1000px;
-			transition: $transition-base;
-			transform: translate3d(25px, 0, 0);
-		}
-	}
-}
-
-.ds_fixed_changer {
-	margin-right: 30px;
-	display: flex;
-	align-items: center;
-
-	.plus,
-	.minus {
-		width: 20px;
-		height: 20px;
-		display: block;
-		cursor: pointer;
 		fill: $light;
 		transition: $transition-base;
+		cursor: pointer;
 
-		&:hover,
-		&:active {
+		&:hover {
 			fill: $accent;
 		}
+	}
 
-		&._disabled {
-			opacity: 0.2;
+	li {
+		padding: 0 15px;
+		position: relative;
+		font-weight: 700;
+		font-size: 3.6vw;
+		color: $light;
+		transition: $transition-base;
+
+		label {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			font-size: 15vw;
+			color: rgba($light, 0.04);
+			font-style: italic;
+			transition: $transition-base;
 			pointer-events: none;
+			font-weight: 800;
+		}
+
+		> div {
+			width: 100%;
+		}
+
+		input {
+			border: 0;
+			color: $light;
+			border-bottom: 2px solid $light;
+			padding: 10px 0;
+			width: 100%;
+			background: none;
+			font-size: 4vw;
+			position: relative;
+			z-index: 1;
+			text-align: center;
+			font-weight: 700;
+			transition: $transition-base;
+			font-family: $font-base;
+
+			&::-webkit-inner-spin-button {
+				display: none;
+			}
+
+			&:focus {
+				border-color: $accent;
+			}
 		}
 	}
-
-	.ds_input {
-		margin: 0 10px;
-
-		input,
-		.input {
-			text-align: right;
-		}
-	}
-}
-
-.ds_unit_append {
-	margin-right: 30px;
 }
 
 //
@@ -263,7 +150,7 @@
 .ds_input {
 	position: relative;
 
-	._light & {
+	@include isLight {
 		label {
 			background: $light;
 			color: $dark;
