@@ -1,15 +1,24 @@
 // Fonts
-@import 'https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap';
+@import 'https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800;900&display=swap';
 
 // Variables
-$dark: #051c2c;
-$accent: #ff7f32;
-$light: #f2f2f2;
+$black: #000;
+$white: #fff;
+$primary:   #2900e6;
+$secondary: #ffdf3e;
+// $dark:      #051c2c;
+// $light:     #f2f2f2;
+$dark:      mix($black, $primary, 85%);
+$light:     #f2f2f2;
 
 $font-base: 'Inter', sans-serif;
 $line-height-base: 1.2;
-$body-color: #fff;
+$body-color: $white;
 $body-bg: $dark;
+
+$zindex-header: 2000;
+
+$header-height: 75px;
 
 //
 $transition-cubic-bezier: cubic-bezier(0.3, 0, 0, 1);

@@ -3,11 +3,15 @@ import App from './App.vue'
 
 import store from './store'
 
-import DsSprite from './components/sprite';
+import DsSprite from './components/Sprite';
+import DsOcticon from './components/Octicon';
+import DsHeader from './components/Header';
 
-Vue.config.productionTip = false
+Vue.component('ds-sprite', DsSprite);
+Vue.component('ds-octicon', DsOcticon);
+Vue.component('ds-header', DsHeader);
 
-Vue.component('ds-sprite', DsSprite)
+Vue.config.productionTip = false;
 
 new Vue({
   render: h => h(App),

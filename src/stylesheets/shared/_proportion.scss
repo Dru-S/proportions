@@ -1,0 +1,218 @@
+.ds_proportion {
+	$proportions: &;
+
+	@include scut-padding(30px);
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	margin: auto;
+	width: 100%;
+	gap: 15px;
+
+	@include mq(md) {
+		gap: 30px 15px;
+	}
+
+	@include mq(lg) {
+		flex-wrap: nowrap;
+	}
+
+	//
+
+	&_i {
+		position: relative;
+		font-weight: 700;
+		font-size: 32px;
+		color: $light;
+		transition: color $transition-base-easing;
+		text-align: center;
+
+		@include mq(lg) {
+			font-size: 3.6vw;
+		}
+
+		@include isLight {
+			color: $dark;
+		}
+	}
+
+	//
+
+	&_input {
+		width: 1%;
+		flex-grow: 1;
+
+		&._res {
+			&._border {
+				input {
+					border-color: $secondary;
+				}
+			}
+
+			input {
+				color: $secondary !important;
+				pointer-events: none;
+
+				&:focus {
+					border-color: $primary;
+				}
+			}
+
+		}
+
+		@include isLight {
+
+			label {
+				color: rgba($dark, 0.07);
+			}
+
+			input {
+				color: $dark;
+				border-color: $dark;
+
+				&:focus {
+					border-color: $primary;
+				}
+			}
+
+			&._res {
+				&._border {
+					input {
+						border-color: $primary;
+					}
+				}
+
+				input {
+					color: $primary !important;
+				}
+			}
+		}
+
+		//
+
+		label {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			font-size: 130px;
+			color: rgba($light, 0.04);
+			transition: color $transition-base-easing;
+			pointer-events: none;
+			font-weight: 900;
+
+			@include mq(lg) {
+				font-size: 15vw;
+			}
+		}
+
+		> div {
+			width: 100%;
+		}
+
+		input {
+			border: 0;
+			border-radius: 0;
+			color: $light;
+			border-bottom: 2px solid $light;
+			padding: 10px 0;
+			width: 100%;
+			background: none;
+			font-size: 36px;
+			position: relative;
+			z-index: 1;
+			text-align: center;
+			font-weight: 700;
+			font-family: $font-base;
+			transition: (
+				border $transition-base-easing,
+				color $transition-base-easing,
+			);
+
+			@include mq(md) {
+				font-size: 4vw;
+			}
+
+			&::-webkit-inner-spin-button {
+				display: none;
+			}
+
+			&:focus {
+				border-color: $secondary;
+			}
+		}
+	}
+
+	//
+
+	&_swap,
+	&_colon {
+		width: 100%;
+
+		@include mq(md) {
+			width: auto;
+		}
+	}
+
+	&_swap {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+
+		@include isLight {
+			a {
+				color: $dark;
+				background: rgba($primary, 0);
+				box-shadow: 0 0 0 8px rgba($primary, 0);
+
+				&:hover {
+					color: $primary;
+					background: rgba($primary, .2);
+					box-shadow: 0 0 0 8px rgba($primary, .2);
+				}
+			}
+		}
+
+		a {
+			@include scut-size(35px);
+			display: block;
+			cursor: pointer;
+			transform: rotate(90deg);
+			border-radius: 100px;
+			color: $light;
+			background: rgba($secondary, 0);
+			box-shadow: 0 0 0 8px rgba($secondary, 0);
+			transition: (
+				color $transition-base-easing,
+				background $transition-base-easing,
+				box-shadow $transition-base-easing,
+			);
+
+			@include mq(md) {
+				transform: none;
+			}
+
+			&:hover {
+				color: $secondary;
+				background: rgba($secondary, .2);
+				box-shadow: 0 0 0 8px rgba($secondary, .2);
+			}
+		}
+	}
+
+	&_equals,
+	&_colon {
+		line-height: 1;
+	}
+
+	&_equals {
+		width: 100%;
+
+		@include mq(lg) {
+			width: auto;
+		}
+	}
+
+	&_colon {}
+}

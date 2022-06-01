@@ -6,7 +6,8 @@ Vue.use(Vuex)
 const store = new Vuex.Store({
 	state: {
 		count: 0,
-		unit: '',
+		prefix: '',
+		suffix: '',
 		fixed: 2,
 		theme: 'dark',
 	},
@@ -16,8 +17,8 @@ const store = new Vuex.Store({
 			if (state.fixed < 0) state.fixed = 0;
 		},
 		//
-		unitUpdate(state, unit) {
-			state.unit = unit;
+		unitUpdate(state, { unit, value }) {
+			state[unit] = value || '';
 		},
 		//
 		themeUpdate(state, theme) {
@@ -28,8 +29,16 @@ const store = new Vuex.Store({
 					break;
 
 				default:
-					state.theme = state.theme == 'light' ? 'dark' : state.theme;
-					state.theme = state.theme == 'dark' ? 'light' : state.theme;
+					if (state.theme == 'light') {
+						state.theme = 'dark';
+						break;
+					}
+
+					if (state.theme == 'dark') {
+						state.theme = 'light';
+						break;
+					}
+
 					break;
 			}
 		},

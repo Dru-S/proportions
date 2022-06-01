@@ -1,0 +1,11 @@
+.ds_main {
+	@include scut-size(100%);
+	padding-top: $header-height;
+	display: flex;
+	background: $dark;
+	transition: background $transition-base-easing;
+
+	@include isLight {
+		background: $light;
+	}
+}
