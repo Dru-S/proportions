@@ -15,6 +15,7 @@ npm run serve # For production, with minify
 - [ ] Refactor some code - _Always doing..._
 - [ ] Add `localStorage` to save and restore some settings
 - [ ] Add option to print the result without trailing zeros, if the results is an integer
-- [ ] Maybe think also about mobile devices
+- [x] Maybe think also about mobile devices
 - [ ] Grid & Inline view
-- [ ] `paste-btn`, to paste the result (and maybe a snackbar or an alert to notify)
+- [ ] `copy-btn`, to copy the result (and maybe a snackbar or an alert to notify)
+- [ ] Better management of button styles, maybe a class to style'em all!

@@ -6,6 +6,7 @@
 	vertical-align: top;
 	flex-shrink: 0;
 	font-style: normal;
+	fill: currentColor;
 
 	svg {
 		@include scut-size(100%);

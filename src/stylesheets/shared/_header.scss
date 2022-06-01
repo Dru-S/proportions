@@ -1,21 +1,33 @@
 .ds_header {
 	@include scut-fixed(0 0 n 0);
+	@include scut-padding(n 20px);
+	height: $header-height;
 	z-index: $zindex-header;
-	padding: 20px;
 	display: flex;
 	align-items: center;
+	gap: 20px;
+	color: $light;
+	transition: (
+		color $transition-base-easing,
+		background $transition-base-easing,
+	);
+	background: rgba($dark, .6);
+	// backdrop-filter: blur(5px);
+
+	@include isLight {
+		color: $dark;
+		background: rgba($light, .6);
+	};
 
 	&_logo {
 		$dshl: &;
 
-		color: $light;
 		font-weight: 700;
 		letter-spacing: -.04em;
 		font-size: 32px;
 		line-height: 1;
 		position: relative;
 		cursor: default;
-		transition: color $transition-base-easing;
 
 		&:hover,
 		&:active {
@@ -26,10 +38,6 @@
 				}
 			}
 		}
-
-		@include isLight {
-			color: $dark;
-		};
 
 		&_claim {
 			@include scut-absolute(100% n n 0);
@@ -50,15 +58,139 @@
 	//
 
 	&_tools {
-		display: flex;
-		align-items: center;
+		$tools-open: '#{&}._open';
+
 		margin-left: auto;
 
-		&_i {
-			margin-right: 30px;
+		&_toggle {
+			@include reset-button;
+			@include scut-size(24px);
+			border-radius: 100px;
+			color: $light;
+			background: rgba($secondary, 0);
+			box-shadow: 0 0 0 5px rgba($secondary, 0);
+			transition: (
+				color $transition-base-easing,
+				background $transition-base-easing,
+				box-shadow $transition-base-easing,
+			);
 
-			&:last-child {
-				margin-right: 0;
+			@include mq(md) {
+				display: none;
+			}
+
+			&:hover,
+			&:active {
+				color: $secondary;
+				background: rgba($secondary, .2);
+				box-shadow: 0 0 0 5px rgba($secondary, .2);
+			}
+
+			@include isLight {
+				color: $dark;
+				background: rgba($dark, 0);
+				box-shadow: 0 0 0 5px rgba($dark, 0);
+
+				&:hover,
+				&:active {
+					color: $primary;
+					background: rgba($primary, .2);
+					box-shadow: 0 0 0 5px rgba($primary, .2);
+				}
+			}
+		}
+
+		&_wr {
+			display: flex;
+			flex-direction: column;
+			gap: 20px 30px;
+			transition: (
+				background $transition-base-easing,
+				border $transition-base-easing,
+				transform $transition-base-easing,
+			);
+
+			@include mq(0px, md) {
+				@include scut-fixed(0 n 0 100%);
+				@include scut-padding(20px);
+				width: 90%;
+				max-width: 200px;
+				background: rgba($dark, .75);
+				backdrop-filter: blur(5px);
+				border-left: 2px solid $light;
+				transform: none;
+
+				#{$tools-open} & {
+					transform: translate3d(-100%, 0, 0);
+				}
+			}
+
+			@include mq(md) {
+				flex-direction: row;
+				align-items: center;
+			}
+
+			@include isLight {
+				@include mq(0px, md) {
+					background: rgba($light, .75);
+					border-left: 2px solid $dark;
+				}
+			};
+
+			&_title {
+				font-size: 28px;
+				font-weight: 700;
+				// margin-bottom: 10px;
+				display: flex;
+				align-items: center;
+				gap: 10px;
+
+				@include mq(md) {
+					display: none;
+				}
+
+				button {
+					@include reset-button;
+					@include scut-size(24px);
+					margin-left: auto;
+					border-radius: 100px;
+					color: $light;
+					background: rgba($secondary, 0);
+					box-shadow: 0 0 0 5px rgba($secondary, 0);
+					transition: (
+						color $transition-base-easing,
+						background $transition-base-easing,
+						box-shadow $transition-base-easing,
+					);
+
+					&:hover,
+					&:active {
+						color: $secondary;
+						background: rgba($secondary, .2);
+						box-shadow: 0 0 0 5px rgba($secondary, .2);
+					}
+
+					@include isLight {
+						color: $dark;
+						background: rgba($dark, 0);
+						box-shadow: 0 0 0 5px rgba($dark, 0);
+
+						&:hover,
+						&:active {
+							color: $primary;
+							background: rgba($primary, .2);
+							box-shadow: 0 0 0 5px rgba($primary, .2);
+						}
+					}
+				}
+			}
+		}
+
+		&_i {
+			.ds_input {
+				@include mq(md) {
+					width: 70px;
+				}
 			}
 		}
 	}

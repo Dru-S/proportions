@@ -6,37 +6,45 @@
 
 		<main class="ds_main">
 
-			<ul class="ds_proportions">
-				<li class="ds_proportions_input">
+			<div class="ds_proportion">
+
+				<div class="ds_proportion_i ds_proportion_input">
 					<label for="inputA">A</label>
 					<div>
 						<input type="number" v-model="inputA" autofocus />
 					</div>
-				</li>
-				<li>
-					<a class="ds_proportions_swap" @click="swapTwins()"><ds-octicon name="arrow-switch"/></a>
-				</li>
-				<li class="ds_proportions_input">
+				</div>
+
+				<div class="ds_proportion_i ds_proportion_swap">
+					<a class="" @click="swapTwins()"><ds-octicon name="arrow-switch"/></a>
+				</div>
+
+				<div class="ds_proportion_i ds_proportion_input">
 					<label for="inputB">B</label>
 					<div>
 						<input type="number" v-model="inputB" />
 					</div>
-				</li>
-				<li>{{ '=' }}</li>
-				<li class="ds_proportions_input">
+				</div>
+
+				<div class="ds_proportion_i ds_proportion_equals">{{ '=' }}</div>
+
+				<div class="ds_proportion_i ds_proportion_input">
 					<label for="inputC">C</label>
 					<div>
 						<input type="number" v-model="inputC" />
 					</div>
-				</li>
-				<li>{{ ':' }}</li>
-				<li class="ds_proportions_input _res" v-bind:class="{ _border: !!inputD }">
+				</div>
+
+				<div class="ds_proportion_i ds_proportion_colon">{{ ':' }}</div>
+
+				<div class="ds_proportion_i ds_proportion_input _res" v-bind:class="{ _border: !!inputD }">
 					<label for="inputD">?</label>
 					<div>
 						<input type="text" :value="inputD" readonly tabindex="0" />
 					</div>
-				</li>
-			</ul>
+				</div>
+
+			</div>
 
 		</main>
 
@@ -46,7 +54,9 @@
 <script>
 export default {
 	name: 'App',
+
 	components: {},
+
 	data() {
 		return {
 			inputA: '',
@@ -54,14 +64,16 @@ export default {
 			inputC: '',
 		};
 	},
+
 	computed: {
 		inputD() {
 			if (!(this.$data.inputA && this.$data.inputB && this.$data.inputC)) return '';
 
 			let value = ((this.$data.inputB * this.$data.inputC) / this.$data.inputA).toFixed(this.$store.state.fixed);
-			return value + this.$store.state.unit;
+			return this.$store.state.prefix + value + this.$store.state.suffix;
 		}
 	},
+
 	methods: {
 		swapTwins() {
 			let tmp = this.$data.inputA;

@@ -1,22 +1,98 @@
+.ds_app {
+	height: 100%;
+
+	// Fix `min-height` flex IE
+	&::after { content: ''; min-height: inherit; font-size: 0; }
+}
+
+//
+
+.ds_input {
+	position: relative;
+
+	@include isLight {
+		label {
+			background: $light;
+			color: $dark;
+		}
+
+		input,
+		.input {
+			color: $dark;
+			border-color: $dark;
+		}
+	}
+
+	label {
+		position: absolute;
+		top: -6px;
+		left: 2px;
+		display: block;
+		background: $dark;
+		font-size: 13px;
+		color: $light;
+		padding: 0 3px;
+		letter-spacing: 0.5px;
+		transition: $transition-base;
+		user-select: none;
+	}
+
+	input,
+	.input {
+		border: 2px solid $light;
+		color: $light;
+		border-radius: 3px;
+		background: none;
+		height: 35px;
+		line-height: 35px;
+		width: 100%;
+		padding: 0 6px;
+		font-size: 18px;
+		font-family: $font-base;
+		transition: $transition-base;
+		// user-select: none;
+	}
+}
+
+//
+
 .ds_theme_switcher {
 	display: flex;
 	align-items: center;
+	justify-content: center;
 
 	&_icon {
-		width: 22px;
-		height: 22px;
+		@include scut-size(24px);
 		display: block;
 		cursor: pointer;
-		fill: $light;
-		transition: fill $transition-base-easing;
+		border-radius: 100%;
+		color: $light;
+		background: rgba($secondary, 0);
+		box-shadow: 0 0 0 5px rgba($secondary, 0);
+		transition: (
+			color $transition-base-easing,
+			background $transition-base-easing,
+			box-shadow $transition-base-easing,
+		);
 
 		&:hover,
 		&:active {
-			fill: $accent !important;
+			color: $secondary;
+			background: rgba($secondary, .2);
+			box-shadow: 0 0 0 5px rgba($secondary, .2);
 		}
 
 		@include isLight {
-			fill: $dark;
+			color: $dark;
+			background: rgba($dark, 0);
+			box-shadow: 0 0 0 5px rgba($dark, 0);
+
+			&:hover,
+			&:active {
+				color: $primary;
+				background: rgba($primary, .2);
+				box-shadow: 0 0 0 5px rgba($primary, .2);
+			}
 		}
 	}
 
@@ -61,16 +137,24 @@
 	align-items: center;
 
 	&_i {
-		width: 20px;
-		height: 20px;
+		@include scut-size(24px);
 		display: block;
 		cursor: pointer;
-		fill: $light;
-		transition: $transition-base;
+		border-radius: 100px;
+		color: $light;
+		background: rgba($secondary, 0);
+		box-shadow: 0 0 0 2px rgba($secondary, 0);
+		transition: (
+			color $transition-base-easing,
+			background $transition-base-easing,
+			box-shadow $transition-base-easing,
+		);
 
 		&:hover,
 		&:active {
-			fill: $accent !important;
+			color: $secondary;
+			background: rgba($secondary, .2);
+			box-shadow: 0 0 0 2px rgba($secondary, .2);
 		}
 
 		&._disabled {
@@ -79,12 +163,23 @@
 		}
 
 		@include isLight {
-			fill: $dark;
+			color: $dark;
+			background: rgba($dark, 0);
+			box-shadow: 0 0 0 2px rgba($dark, 0);
+
+			&:hover,
+			&:active {
+				color: $primary;
+				background: rgba($primary, .2);
+				box-shadow: 0 0 0 2px rgba($primary, .2);
+			}
 		};
 	}
 
 	.ds_input {
 		margin: 0 10px;
+		// width: 100%;
+		flex-grow: 1;
 
 		input,
 		.input {

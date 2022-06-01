@@ -4,3 +4,18 @@
 		@content;
 	}
 }
+
+@mixin reset-button($exclude: ()) {
+	$props: (
+		'appearance': none,
+		'background': none,
+		'border': 0,
+		'padding': 0,
+	);
+
+	@each $prop, $value in $props {
+		@if not index($exclude, $prop) {
+			#{$prop}: #{$value};
+		}
+	}
+}
